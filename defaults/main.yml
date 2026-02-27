@@ -6,9 +6,6 @@ guacamole_db_user: guacamole
 guacamole_db_password: 'foofoofoo'
 guacamole_db_name: guacamole_db
 guacamole_db_client: localhost
-skip_mysql_connector: false
-mysql_java_client_version: 5.1.44
-mysql_java_client_link: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-{{ mysql_java_client_version }}.tar.gz
 
 guacamole_apt_install:
   - mariadb-server
