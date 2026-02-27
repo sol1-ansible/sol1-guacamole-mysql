@@ -1,5 +1,6 @@
 ---
 - name: Retrieving mysql java connector
+  when: not skip_mysql_connector
   get_url:
     url: "{{ mysql_java_client_link }}"
     dest: /tmp/
