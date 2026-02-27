@@ -1,22 +1,23 @@
 ---
 - name: Retrieving mysql java connector
-  when: not skip_mysql_connector
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ mysql_java_client_link }}"
     dest: /tmp/
-  become: true
+
 - name: Unarchiving mysql-connector-java-{{ mysql_java_client_version }}.tar.gz
   when: mysql_java_client_link.endswith('.tar.gz')
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/mysql-connector-java-{{ mysql_java_client_version }}.tar.gz
     dest: /tmp/
     copy: no
+
 - name: Retrieving guacamole-auth-jdbc-{{ guacamole_version }}
-  get_url:
+  ansible.builtin.get_url:
     url: http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/binary/guacamole-auth-jdbc-{{ guacamole_version }}.tar.gz
     dest: /tmp/
+
 - name: Unarchiving guacamole-auth-jdbc-{{ guacamole_version }}
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/guacamole-auth-jdbc-{{ guacamole_version }}.tar.gz
     dest: /tmp/
     copy: no
